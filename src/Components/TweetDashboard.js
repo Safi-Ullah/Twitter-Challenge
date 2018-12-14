@@ -1,6 +1,7 @@
 import React from 'react';
 import TweetsList from './TweetsList';
 import { Grid } from '@material-ui/core';
+import { twitterAccounts } from '../constants';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { getDraggableListStyle, getDraggableItemStyle } from '../jss/style';
 
@@ -12,7 +13,7 @@ class TweetDashboard extends React.Component {
         this.state = {
             tweetOrder: localStorage.getItem('columnsOrder')
                 ? localStorage.getItem('columnsOrder').split(',')
-                : ['newsycombinator', 'MakeSchool', 'ycombinator']
+                : twitterAccounts
         }
 
         this.handleColumnsOrderChange = this.handleColumnsOrderChange.bind(this);

@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 import { BounceLoader } from 'halogenium';
 import { withStyles } from '@material-ui/core/styles';
 import { dashboardStyles, blue } from '../jss/style';
-import { BASE_URL } from '../config';
+import { baseUrl } from '../constants';
 import _ from 'lodash';
 
 class TweetsList extends React.Component {
@@ -33,7 +33,7 @@ class TweetsList extends React.Component {
         this.setState({loading: true});
         const screenName = this.props.screenName;
         const count = tweetCount ? tweetCount : this.props.count;
-        axios.get(`${BASE_URL}/1.1/statuses/user_timeline.json?count=${count}&screen_name=${screenName}&tweet_mode=extended`)
+        axios.get(`${baseUrl}/1.1/statuses/user_timeline.json?count=${count}&screen_name=${screenName}&tweet_mode=extended`)
             .then(response => {
             this.setState({
                 tweets: response.data,
